@@ -22,7 +22,6 @@ size_t	ft_strcspn(const char *s, const char *reject)
 	i = 0;
 	while (s[i])
 	{
-		i++;
 		j = 0;
 		while (reject[j])
 		{
@@ -30,6 +29,7 @@ size_t	ft_strcspn(const char *s, const char *reject)
 				return (i);
 			j++;
 		}
+		i++;
 	}
 	return (i);
 }
@@ -38,5 +38,5 @@ size_t	ft_strcspn(const char *s, const char *reject)
 
 // int main()
 // {
-// 	printf("%lu\n", ft_strcspn("0123456789", "6"));
+// 	printf("%lu\n", strcspn("0123456789", "6"));
 // }
