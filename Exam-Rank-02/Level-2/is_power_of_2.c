@@ -25,9 +25,25 @@ int	    is_power_of_2(unsigned int n)
 	return (0);
 }
 
+//the function below is a solution to the same problem using bitwise operators
+int	    is_power_of_2_bits(unsigned int n)
+{
+	int count;
+
+	count = 0;
+	while (n)
+	{
+		count += n & 1;
+		n >>= 1;
+	}
+	if (count == 1)
+		return (1);
+	return (0);
+}
+
 // #include <stdio.h>
 
 // int main()
 // {
-// 	printf("%d\n", is_power_of_2(12));
+// 	printf("%d\n", is_power_of_2_bits(6));
 // }
