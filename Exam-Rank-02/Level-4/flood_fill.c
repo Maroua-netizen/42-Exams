@@ -57,29 +57,79 @@ $>
 
 #include "flood_fill.h"
 
+void fill(char **tab, t_point size, int row, int column, char old_char)
+{
+
+	if (row < 0 || row >= size.x || column < 0 || column >= size.y || tab[row][column] != old_char || tab[row][column] == 'F')
+		return;
+	tab[row][column] = 'F';
+    fill(tab, size, row + 1, column, old_char);
+    fill(tab, size, row - 1, column, old_char);
+    fill(tab, size, row, column + 1, old_char);
+    fill(tab, size, row, column - 1, old_char);
+}
+
 void  flood_fill(char **tab, t_point size, t_point begin)
 {
+	char old_char;
 
+	old_char = tab[begin.x][begin.y];
+	fill(tab, size, begin.x, begin.y, old_char);
 }
 
-#include "test_functions.h"
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
 
-int main()
-{
-	// char **area;
-	t_point size = {8, 5};
-	t_point begin = {2, 2};
-	char *zone[] = {
-		"1 1 1 1 1 1 1 1",
-		"1 0 0 0 1 0 0 1",
-		"1 0 0 1 0 0 0 1",
-		"1 0 1 1 0 0 0 1",
-		"1 1 1 0 0 0 0 1",
-		NULL
-	};
-	// area = make_area(zone);
-	print_tab(zone);
-	flood_fill(zone, size, begin);
-	putchar('\n');
-	print_tab(zone);
-}
+// void print_tab(char **tab)
+// {
+// 	int i;
+
+// 	i = 0;
+// 	while (tab[i])
+// 	{
+// 		printf("%s\n", tab[i]);
+// 		i++;
+// 	}	
+// }
+
+// char **make_area(char **tab, t_point size)
+// {
+// 	int i;
+// 	char **area;
+
+// 	area = calloc(size.x + 1, sizeof(char *));
+// 	if (!area)
+// 		return (NULL);
+// 	i = 0;
+// 	while (i < size.x)
+// 	{
+// 		area[i] = strdup(tab[i]);
+// 		if (!area[i])
+// 			return (NULL);
+// 		i++;
+// 	}
+// 	return (area);
+// }
+
+// int main()
+// {
+// 	char **area;
+// 	t_point size = {5, 8};
+// 	t_point begin = {0, 0};
+// 	char *tab[] = {
+// 		"11111111",
+// 		"10001001",
+// 		"10010001",
+// 		"10110001",
+// 		"11100001",
+// 		NULL
+// 	};
+// 	printf("initial tab:\n");
+// 	print_tab(tab);
+// 	area = make_area(tab, size);
+// 	flood_fill(area, size, begin);
+// 	putchar('\n');
+// 	printf("flood filled tab:\n");
+// 	print_tab(area);
+// }
