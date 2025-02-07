@@ -59,8 +59,8 @@ $>
 
 void fill(char **tab, t_point size, int row, int column, char old_char)
 {
-
-	if (row < 0 || row >= size.x || column < 0 || column >= size.y || tab[row][column] != old_char || tab[row][column] == 'F')
+	if (row < 0 || row >= size.x || column < 0 || column >= size.y 
+		|| tab[row][column] != old_char || tab[row][column] == 'F')
 		return;
 	tab[row][column] = 'F';
     fill(tab, size, row + 1, column, old_char);
