@@ -21,18 +21,18 @@ Your function must be declared as follows:
 int	ft_atoi_base(const char *str, int str_base);
 */
 
-int	strchr(char *str, char c)
+int	my_strchr(char *str, char c, int str_base)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (i < str_base)
 	{
 		if (str[i] == c)
-			return (1);
+			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 int	ft_atoi_base(const char *str, int str_base)
@@ -42,22 +42,36 @@ int	ft_atoi_base(const char *str, int str_base)
 	int		i;
 	char	stru[] = "0123456789ABCDEF";
 	char	strl[] = "0123456789abcdef";
+	int		u;
+	int		l;
 
 	n = 0;
 	sign = 1;
 	i = 0;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		sign = -1;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
 	while (str[i])
 	{
-		if (strchr(stru, str[i]) || strchr(strl, str[i]))
-			n = n * str_base + str[i] - '0';
+		u = my_strchr(stru, str[i], str_base);
+		l = my_strchr(strl, str[i], str_base);
+		if (u != -1)
+			n = n * str_base + u;
+		else if (l != -1)
+			n = n * str_base + l;
 		else
 			return (0);
 		i++;
 	}
 	return (n * sign);
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	printf("%d\n", ft_atoi_base("30", 5));
+// }
