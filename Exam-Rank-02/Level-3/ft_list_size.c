@@ -38,6 +38,13 @@ int	ft_list_size(t_list *begin_list)
 	return (i);
 }
 
+int	ft_list_size_recursive(t_list *begin_list)
+{
+	if (!begin_list)
+		return (0);
+	return (1 + ft_list_size_recursive(begin_list->next));
+}
+
 // #include <stdio.h>
 // #include <stdlib.h>
 
@@ -49,5 +56,5 @@ int	ft_list_size(t_list *begin_list)
 // 	root.next = malloc(sizeof(t_list));
 // 	root.next->data = "def";
 // 	root.next->next = NULL;
-// 	printf("%d\n", ft_list_size(&root));
+// 	printf("%d\n", ft_list_size_recursive(&root));
 // }
