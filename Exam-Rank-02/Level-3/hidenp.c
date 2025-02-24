@@ -31,7 +31,7 @@ $>
 
 int	main(int ac, char **av)
 {
-	if (ac == 2)
+	if (ac == 3)
 	{
 		if (!av[1][0])
 		{
