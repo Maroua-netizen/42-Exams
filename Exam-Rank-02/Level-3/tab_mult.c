@@ -68,10 +68,10 @@ int main(int ac, char **av)
 		write(1, "\n", 1);
 		return (1);
 	}
-	int i = '1';
-	while (i <= '9')
+	int i = 1;
+	while (i <= 9)
 	{
-		write(1, &i, 1);
+		putnbr(i);
 		write(1, " x ", 3);
 		int j = 0;
 		while (av[1][j])
@@ -80,7 +80,7 @@ int main(int ac, char **av)
 			j++;
 		}
 		write(1, " = ", 3);
-		putnbr(ft_atoi(av[1]) * (i - '0'));
+		putnbr(ft_atoi(av[1]) * i);
 		write(1, "\n", 1);
 		i++;
 	}
