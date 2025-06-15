@@ -1,6 +1,6 @@
 # 42-Exams
 
-This repository is for practicing for Exams in 42 school. It contains my implementations of 42 exams exercises, specifically for the rank 02 exam. The exercises are divided into four levels, each increasing in difficulty.
+This repository was originally created for practicing for Exams in 42 school. While the exam format has changed, these exercises remain a great way to practice solving C problems in a LeetCode-style format. The repo contains my implementations of former 42 exams exercises, specifically for the rank 02 exam. The exercises are divided into four levels, each increasing in difficulty.
 
 Each `.c` file contains:
 1. The exercise subject (commented out at the beginning)
